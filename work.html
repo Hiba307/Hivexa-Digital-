@@ -1,0 +1,580 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Hivexa Digital | Portfolio</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+    <link rel="icon" type="image/png" href="img/hivexa logo.png">
+    
+    <style>
+        /* ================= BASE ================= */
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #fff;
+            color: #0a1f44;
+            overflow-x: hidden;
+        }
+
+        /* ================= NAVBAR ================= */
+        .navbar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(15px);
+            transition: 0.3s;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+        }
+
+        .navbar.scrolled {
+            padding: 8px 0;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+        }
+
+        /* LOGO */
+        .navbar-brand img {
+            height: 45px;
+            transition: 0.3s;
+        }
+
+        .navbar.scrolled .navbar-brand img {
+            height: 38px;
+        }
+
+        /* NAV LINKS */
+        .nav-link {
+            color: #0a1f44 !important;
+            position: relative;
+        }
+
+        .nav-link::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            bottom: -4px;
+            width: 0%;
+            height: 2px;
+            background: #1e88e5;
+            transition: 0.3s;
+        }
+
+        .nav-link:hover::after {
+            width: 100%;
+        }
+
+
+
+        /* ================= HERO ================= */
+        .hero {
+            padding: 150px 10% 90px;
+            text-align: center;
+            background: linear-gradient(120deg, #0a1f44, #1e88e5);
+            color: #fff;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero h1 {
+            font-size: clamp(28px, 5vw, 58px);
+            font-weight: 900;
+            animation: floatText 4s ease-in-out infinite;
+        }
+
+        .hero p {
+            font-size: clamp(14px, 2vw, 18px);
+            opacity: 0.9;
+            max-width: 700px;
+            margin: auto;
+        }
+        .hero {
+    padding: 150px 10% 90px;
+    text-align: center;
+    color: #fff;
+    position: relative;
+    overflow: hidden;
+
+    /* NEW IMAGE */
+    background: url("https://images.unsplash.com/photo-1521737604893-d14cc237f11d") center/cover no-repeat;
+}
+
+/* BLACK OPACITY LAYER */
+.hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.65);
+}
+
+/* KEEP TEXT ABOVE LAYER */
+.hero-content {
+    position: relative;
+    z-index: 2;
+}
+
+.hero h1 {
+    font-size: clamp(28px, 5vw, 58px);
+    font-weight: 900;
+    animation: floatText 4s ease-in-out infinite;
+}
+
+.hero p {
+    opacity: 0.9;
+    max-width: 700px;
+    margin: auto;
+}
+
+        @keyframes floatText {
+            0% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-10px);
+            }
+
+            100% {
+                transform: translateY(0);
+            }
+        }
+
+        /* ================= SECTION ================= */
+        .section {
+            padding: 70px 5%;
+        }
+
+        .service-title {
+            font-size: 26px;
+            font-weight: 800;
+            margin-bottom: 25px;
+            border-left: 5px solid #1e88e5;
+            padding-left: 12px;
+        }
+
+        /* ================= CARD ================= */
+        .work-card {
+            background: #fff;
+            border-radius: 18px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            transition: 0.4s;
+            cursor: pointer;
+            height: 100%;
+        }
+
+        .work-card:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 30px 60px rgba(30, 136, 229, 0.25);
+        }
+
+        .work-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            transition: 0.4s;
+        }
+
+        .work-card:hover img {
+            transform: scale(1.08);
+            filter: brightness(70%);
+        }
+
+        .card-body {
+            padding: 15px;
+        }
+
+        .card-body p {
+            font-size: 14px;
+            color: #555;
+        }
+
+        /* ================= SCROLL ================= */
+        .hidden {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: 0.6s ease;
+        }
+
+        .show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* ================= FOOTER ================= */
+        footer {
+            background: #0a1f44;
+            color: #fff;
+            padding: 60px 5%;
+            margin-top: 60px;
+        }
+
+        .footer-logo {
+            height: 60px;
+            margin-bottom: 15px;
+        }
+
+        /* LINKS */
+        footer a {
+            color: #cfe2ff;
+            text-decoration: none;
+            display: block;
+            margin: 6px 0;
+            transition: 0.3s;
+        }
+
+        footer a:hover {
+            color: #1e88e5;
+            transform: translateX(5px);
+        }
+
+        /* SOCIAL */
+        .social i {
+            font-size: 20px;
+            margin-right: 10px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .social i:hover {
+            color: #1e88e5;
+            transform: scale(1.3);
+        }
+
+        /* MOBILE */
+        @media(max-width:768px) {
+            .hero {
+                padding: 120px 5% 70px;
+            }
+        }
+
+        .project-link {
+            color: #1e88e5;
+            font-weight: 600;
+            text-decoration: none;
+            position: relative;
+        }
+
+        /* line hidden by default */
+        .project-link::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            bottom: -3px;
+            width: 0%;
+            height: 2px;
+            background: #1e88e5;
+            transition: 0.3s ease;
+        }
+
+        /* hover pe line show */
+        .project-link:hover::after {
+            width: 100%;
+        }
+
+        .navbar-brand img {
+            height: clamp(80px, 7vw, 110px);
+            width: auto;
+            max-width: 200px;
+            object-fit: contain;
+            display: block;
+        }
+        .social {
+    display: flex;
+    flex-wrap: nowrap;      /* ❌ prevent wrapping */
+    flex-direction: row;    /* horizontal */
+    gap: 12px;
+    align-items: center;
+    justify-content: center;
+    overflow-x: auto;       /* mobile pe scroll ho jaye instead of break */
+}
+
+.social-icon {
+    width: 45px;
+    height: 45px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    font-size: 18px;
+    text-decoration: none;
+    flex-shrink: 0; 
+    transition: 0.3s;
+}
+
+.social-icon:hover {
+    color: white;
+    transform: translateY(-3px);
+}
+    </style>
+</head>
+
+<body>
+
+    <!-- ================= NAVBAR ================= -->
+    <nav class="navbar navbar-expand-lg">
+        <div class="container">
+
+            <a class="navbar-brand" href="index.html">
+                <img src="img/hivexa_logo-removebg-preview.png" alt="Logo">
+            </a>
+
+            <button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#nav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="nav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+                    <!-- <li class="nav-item"><a class="nav-link" href="services.html">Services</a></li> -->
+                    <li class="nav-item"><a class="nav-link" href="work.html">Work</a></li>
+                    <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+
+        </div>
+    </nav>
+
+    <!-- ================= HERO ================= -->
+   <!-- ================= HERO ================= -->
+<div class="hero">
+    <div class="hero-overlay"></div>
+
+    <div class="hero-content">
+        <h1>Our Creative Work</h1>
+        <p>Design • Development • Video Editing • Amazon Solutions</p>
+    </div>
+</div>
+
+    <!-- ================= GRAPHIC DESIGN ================= -->
+    <div class="section container">
+        <div class="service-title">🎨 Graphic Design</div>
+
+        <div class="row g-4">
+
+            <div class="col-md-6 hidden">
+                <div class="work-card">
+                    <img src="https://images.unsplash.com/photo-1611162618071-b39a2ec055fb">
+                    <div class="card-body">
+                        <h5>Social Media Posts</h5>
+                        <p>Instagram & Facebook branding designs.</p>
+                        <a href="https://drive.google.com/drive/folders/1nMyFZKEuEq182bdsW1Cj26eDa6_TnCoa"
+                            class="project-link">Click to see the project!</a>
+
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6 hidden">
+                <div class="work-card">
+                    <img src="https://images.unsplash.com/photo-1581092795360-fd1ca04f0952">
+                    <div class="card-body">
+                        <h5>Brochures & Flyers</h5>
+                        <p>Marketing materials for print and digital promotion.</p>
+                        <a href="https://drive.google.com/drive/folders/1STurg8LhVLkbwbkdX0y8Fbd-Ef9wROle"
+                            class="project-link">Click to see the project!</a>
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- ================= WEB DEVELOPMENT ================= -->
+    <div class="section container">
+        <div class="service-title">💻 Web Designing</div>
+
+        <div class="row g-4">
+
+            <div class="col-md-6 hidden">
+                <div class="work-card">
+                    <img src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d">
+                    <div class="card-body">
+                        <h5>Educational Website UI</h5>
+                        <p>Modern responsive learning platform design.</p>
+                        <a href="https://hiba307.github.io/skillswap//swapingskill/skillswap%20web/noor%20neww/noor/noor/hiba/index.html"
+                            class="project-link">
+                            Click to see the project!
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- <div class="col-md-6 hidden">
+                <div class="work-card">
+                    <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085">
+                    <div class="card-body">
+                        <h5>Business Website</h5>
+                        <p>Corporate landing page design with UI/UX focus.</p>
+                    </div> -->
+        </div>
+    </div>
+
+    </div>
+    </div>
+
+    <!-- ================= VIDEO EDITING ================= -->
+    <div class="section container">
+        <div class="service-title">🎬 Video Editing</div>
+
+        <div class="row g-4">
+
+            <div class="col-md-6 hidden">
+                <div class="work-card">
+                    <img src="https://images.unsplash.com/photo-1611162616305-c69b3fa7fbe0">
+                    <div class="card-body">
+                        <h5> Reels | Shots </h5>
+                        <p>Short viral content editing.</p>
+                        <a href="https://drive.google.com/drive/folders/11WLTvg6Wl3YfF6-bkbO2BUysOvWljMZn"
+                            class="project-link">Click to see the project!</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- <div class="col-md-6 hidden">
+                <div class="work-card">
+                    <img src="https://images.unsplash.com/photo-1536240478700-b869070f9279">
+                    <div class="card-body">
+                        <h5>YouTube Editing</h5>
+                        <p>Professional long-form video editing.</p>
+                    </div> -->
+        </div>
+    </div>
+
+    </div>
+    </div>
+
+    <!-- ================= AMAZON SERVICES ================= -->
+    <div class="section container">
+        <div class="service-title">📦 Amazon Services</div>
+
+        <div class="row g-4">
+
+            <div class="col-md-6 hidden">
+                <div class="work-card">
+                    <!-- <img src="https://images.unsplash.com/photo-1581091870620-4c3b0a1d1f4b"> -->
+                    <img src="img/product research.jpeg" alt="">
+                    <div class="card-body">
+                        <h5>Product Research</h5>
+                        <p>Market analysis and profitable niches.</p>
+                        <!-- <a href="" class="project-link">Click to see the project!</a> -->
+
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6 hidden">
+                <div class="work-card">
+                    <img src="https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d">
+                    <div class="card-body">
+                        <h5>Supplier Sourcing</h5>
+                        <p>Verified supplier comparison sheets.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6 hidden">
+                <div class="work-card">
+                    <img src="img/listing.jpeg">
+                    <div class="card-body">
+                        <h5>Listing Optimization</h5>
+                        <p>SEO optimized Amazon listings.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6 hidden">
+                <div class="work-card">
+                    <img src="https://images.unsplash.com/photo-1545239351-1141bd82e8a6">
+                    <div class="card-body">
+                        <h5>Product Images</h5>
+                        <p>High converting infographic designs.</p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- ================= FOOTER ================= -->
+    <footer>
+        <div class="container">
+            <div class="row g-4">
+
+                <div class="col-md-4">
+                    <img src="img/hivexa logo.png" class="footer-logo">
+                    <p>Premium digital agency for modern brands and startups.</p>
+                </div>
+
+                <div class="col-md-4">
+                    <h5>Quick Links</h5>
+                    <a href="index.html">Home</a>
+                    <a href="about.html">About</a>
+                    <!-- <a href="services.html">Services</a> -->
+                    <a href="work.html">Work</a>
+                    <a href="contact.html">Contact</a>
+                </div>
+
+                <div class="col-md-4">
+                    <h5>Contact</h5>
+                    <p>hivexa.digital@gmail.com</p>
+
+                  <div class="social">
+
+    <a href="#" target="_blank" class="social-icon">
+        <i class="bi bi-facebook"></i>
+    </a>
+
+    <a href="#" target="_blank" class="social-icon">
+        <i class="bi bi-instagram"></i>
+    </a>
+
+    <a href="https://www.linkedin.com/company/hivexa-digital/" target="_blank" class="social-icon">
+        <i class="bi bi-linkedin"></i>
+    </a>
+
+</div>
+                </div>
+
+            </div>
+
+            <hr>
+            <p class="text-center mb-0">© 2026 Hivexa Digital</p>
+        </div>
+    </footer>
+
+    <!-- ================= JS ================= -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+
+        // navbar scroll effect
+        window.addEventListener("scroll", () => {
+            document.querySelector(".navbar").classList.toggle("scrolled", window.scrollY > 50);
+        });
+
+        // scroll animation
+        const items = document.querySelectorAll(".hidden");
+
+        window.addEventListener("scroll", () => {
+            items.forEach(el => {
+                if (el.getBoundingClientRect().top < window.innerHeight - 100) {
+                    el.classList.add("show");
+                }
+            });
+        });
+
+    </script>
+
+</body>
+
+</html>
